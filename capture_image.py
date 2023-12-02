@@ -1,7 +1,5 @@
 import cv2          # computer vision for webcam
 import time         # for measuring elapsed time
-from crop_image import crop_image 
-from resize_image import resize_image
 
 def capture_image(box_size=None):
     """Captures a frame from the device's live webcam feed
