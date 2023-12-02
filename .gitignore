@@ -1,2 +1,6 @@
 venv/
 capture.jpg
+cropped_capture.jpg
+resized_cropped_capture.jpg
+temp.ipynb
+test.py
