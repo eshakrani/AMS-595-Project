@@ -1,6 +1,7 @@
 import numpy as np
 import scipy
 
+#imported from training.ipynb file
 w = scipy.io.loadmat('training_weights.mat')['weights'] 
 b = scipy.io.loadmat('training_biases.mat')['biases'] 
 
@@ -15,8 +16,3 @@ def classification(image):
     # assign labels to the samples using their probabilities
     Y = (A >= 0.5) * 1.0
     return Y
-
-
-
-    
-

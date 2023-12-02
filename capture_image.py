@@ -47,7 +47,7 @@ def capture_image(box_size=None):
 
             if box_size:
                 # draw a box on the window to show the user where to put their head
-                box_color = (0, 0, 0)
+                box_color = (255, 255, 255)
                 box_thickness = 3
 
                 # specify the coordinates of the top left corner of the box
@@ -95,6 +95,5 @@ def capture_image(box_size=None):
 
 
 if __name__ == '__main__':
-    d = capture_image((750, 750))
-    crop_image('captures/capture.jpg', d['x'], d['y'], d['width'], d['height'])
-    resize_image('captures/cropped_capture.jpg', 250, 250)
+    # capture_image()
+    pass 

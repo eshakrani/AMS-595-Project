@@ -1,4 +1,5 @@
 from PIL import Image 
+import re 
 
 def crop_image(file_path=None, x=0,  y=0, width=0, height=0):
     """Crops an image to a specific size and saves it as a new file
@@ -15,7 +16,10 @@ def crop_image(file_path=None, x=0,  y=0, width=0, height=0):
         return
     
     try:
-        name = file_path[file_path.index('/') + 1: file_path.index()]
+        # extract the 'name' of file "name.jpg"
+        name_pattern = re.compile('/(.+)\.')
+        name = re.findall(name_pattern, file_path)[0]
+
         # open the image
         im = Image.open(file_path) 
 
@@ -23,12 +27,12 @@ def crop_image(file_path=None, x=0,  y=0, width=0, height=0):
         im_c = im.crop((x, y, x + width, y + height))
 
         # save the adjusted image to the system
-        output_path = f'captures/cropped_{file_path}'
-        print(output_path)
+        output_path = f'captures/cropped_{name}.jpg'
         im_c.save(output_path)
 
     except Exception as e:
         print(e)
 
 if __name__ == '__main__':
-    crop_image()
+    # crop_image()
+    pass 
