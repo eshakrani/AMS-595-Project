@@ -12,6 +12,7 @@ def clean_up(dir_path=None):
         if not os.path.isdir(dir_path):
             raise ValueError(f'{dir_path} is not a valid directory.')
         
+        print(f'Emptying directory: {dir_path}')
         for name in os.listdir(dir_path):
             file_path = os.path.join(dir_path, name)
 
@@ -33,5 +34,5 @@ def clean_up(dir_path=None):
         print(f'Error: {v}')
 
 if __name__ == '__main__':
-    # clean_up()
+    clean_up('gd_results')
     pass 
