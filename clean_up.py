@@ -34,5 +34,5 @@ def clean_up(dir_path=None):
         print(f'Error: {v}')
 
 if __name__ == '__main__':
-    clean_up('gd_results')
+    # clean_up('captures')
     pass 
