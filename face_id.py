@@ -23,7 +23,7 @@ for path in [w_path, b_path]:
         break 
 
 image_path = 'lfw_data'
-image_size = (64, 64)
+image_size = (100, 100)
 
 target_name = 'George_W_Bush'
 
@@ -58,7 +58,7 @@ if not trained:
     # otherwise     --> 0
     Y = np.array([1 if name == target_name else 0 for name in names])
     Y = Y.reshape((Y.shape[0], 1))
-    print(f'Shape of labels: {Y.shape}')
+    #print(f'Shape of labels: {Y.shape}')
     # # extract the indices corresponding to the target name
     target_indices = [i for i in range(len(names)) if target_name in names[i]]
     others_indices = [i for i in range(len(names)) if i not in target_indices]
@@ -99,7 +99,7 @@ if not trained:
 # use the device's camera to take a picture of the user
 # provide a box in the camera feed for the user to position 
 #   their head
-capture = capture_image(box_size=(750, 750))
+capture = capture_image(box_size=(250, 250))
 
 # if capture_image() returns None, then there was a problem
 #  getting the image from the camera. Exit the program.
@@ -132,10 +132,10 @@ resized_path = resize_image(file_path=cropped_path,
 
 
 # store the resized image of the user's face
-# face = cv2.imread(resized_path)
-face = cv2.imread('lfw_data/George_W_Bush/George_W_Bush_0001.jpg')
+face = cv2.imread(resized_path)
+#face = cv2.imread('captures/resized_capture.jpg')
 face = cv2.resize(face, image_size)
-print(face)
+#print(face)
 # using the weights and biases previously tuned by the training
 #   process, pass the face image into the classifier and get
 #   the predicted label as well as its probability
@@ -152,7 +152,7 @@ face_prob  = class_results['prob']
 #       2. probability is less than 80%
 #   in this case, prompt the user for a password to prove
 #     their identity
-if face_label == 1 and face_prob >= 0.8:
+if face_label == 1 and face_prob >= 0.7:
     print(f'Face recognized as {target_name}.')
     print('Unlocking...')
 

@@ -94,8 +94,8 @@ def train(X_train, y_train, w_path, b_path):
     b = 0
 
     # hyperparameters
-    num_iterations = 10000
-    learning_rate = 0.006
+    num_iterations = 15000
+    learning_rate = 0.0005
 
     print('Training model....')
 
