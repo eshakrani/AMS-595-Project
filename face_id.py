@@ -124,7 +124,7 @@ cropped_path = crop_image(file_path='captures/capture.jpg',
                           height=box_height)
 
 # now the captured image is the same shape as the training images,
-#  but it has to be resized from (750x750) to match their (64x64) size 
+#  but it has to be resized from (750x750) to match their size 
 resized_path = resize_image(file_path=cropped_path,
                             output_path='captures/resized_capture.jpg',
                             width=image_size[0],

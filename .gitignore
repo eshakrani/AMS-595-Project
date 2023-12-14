@@ -2,3 +2,4 @@ venv/
 captures/
 temp.ipynb
 test.py
+lfw_data/

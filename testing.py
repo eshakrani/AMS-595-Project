@@ -46,11 +46,12 @@ print(f'Shape of labels: {Y.shape}')
 # # extract the indices corresponding to the target name
 target_indices = [i for i in range(len(names)) if target_name in names[i]]
 others_indices = [i for i in range(len(names)) if i not in target_indices]
-test_indices = [i for i in range(len(names)) if i not in others_indices]
 
 random.seed(595)
 others_indices = random.sample(others_indices, len(target_indices))
-test_indices = random.sample(test_indices, len(target_indices))
+
+test_indices = [i for i in range(len(names)) if i not in target_indices and i not in others_indices]
+# test_indices = random.sample(test_indices, len(target_indices))
 
 subset_indices = target_indices + others_indices 
 X_subset = X[subset_indices]
@@ -68,7 +69,7 @@ b = scipy.io.loadmat(b_path)['biases']
 A_train = lr.sigmoid(np.dot(X_subset, w) + b)
 train_predictions = (A_train >= .5).astype(int)
 
-#finf accuracy of predictions and print
+#find accuracy of predictions and print
 train_accuracy = np.mean(train_predictions == Y_subset)
 
 print(f"Train Set Accuracy: {train_accuracy:.2f}")
@@ -77,7 +78,7 @@ print(f"Train Set Accuracy: {train_accuracy:.2f}")
 A_test = lr.sigmoid(np.dot(X_test_subset, w) + b)
 test_predictions = (A_test >= .5).astype(int)
 
-#finf accuracy of predictions and print
+#find accuracy of predictions and print
 test_accuracy = np.mean(test_predictions == Y_test_subset)
 
 print(f"Test Set Accuracy: {test_accuracy:.2f}")
